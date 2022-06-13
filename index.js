@@ -13,6 +13,18 @@ const client = new Discord.Client({
     ]
 })
 
+let bot = {
+    client,
+    prefix: "!",
+    owners: ["615627520024510532"]
+}
+
+client.commands = new Discord.Collection()
+client.events = new Discord.Collection()
+
+module.exports = bot
+
+
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}`)
 })
