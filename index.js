@@ -15,12 +15,18 @@ const client = new Discord.Client({
 
 let bot = {
     client,
-    prefix: "!",
+    prefix: "n.",
     owners: ["615627520024510532"]
 }
 
 client.commands = new Discord.Collection()
 client.events = new Discord.Collection()
+
+client.loadEvents = (bot, reload) => require("./handlers/events")(bot,reload)
+client.loadCommands = (bot, reload) => require("./handlers/events")(bot,reload)
+
+client.loadEvents(bot, false)
+client.loadCommands(bot, false)
 
 module.exports = bot
 
